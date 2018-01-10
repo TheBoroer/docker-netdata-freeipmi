@@ -3,10 +3,8 @@ MAINTAINER docker@bo.ro
 
 RUN apt-get update && apt-get -y install git freeipmi libipmimonitoring-dev
 
-# Initialize IPMI config once by running the tool
-RUN ipmimonitoring
-
 RUN git clone https://github.com/firehol/netdata.git /netdata.git
+# Initialize IPMI config once by running the tool: ipmimonitoring
 
 RUN echo "deb http://ftp.nl.debian.org/debian/ jessie main" > /etc/apt/sources.list
 RUN echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
